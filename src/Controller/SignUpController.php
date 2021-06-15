@@ -14,7 +14,7 @@ use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 class SignUpController extends AbstractController
 {
     /**
-     * @Route("/signup", name="sign_up")
+     * @Route("/admin/signup", name="sign_up")
      */
     public function index(EntityManagerInterface $manager, Request $request, UserPasswordEncoderInterface $passwordEncoder): Response
     {

@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Administration{% endblock %}
+
+{% block body %}
+    Modifier le profile 
+
+    {{form_start(editProfileForm)}}
+    {{form_widget(editProfileForm)}}
+    {{form_end(editProfileForm)}}
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        
+    </script>
+{% endblock %}

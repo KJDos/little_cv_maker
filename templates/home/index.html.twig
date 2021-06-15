@@ -8,22 +8,27 @@
 -->
 
 <div class="bloc profile">
+    <div class="bloc-profile-title">
+        <h1>Hassan ALLALOU</h1>
+        <h2>Developpeur web</h2>
+        <p>Php, Symfony...</p>
+    </div>
     <div class="bloc-photo">
         <img class="photo" src="https://tinyurl.com/3bhnxbyt" alt="photo">
-        <div class="contact">
-            <div class="contact-item">
+        <div class="side-list">
+            <div class="side-list-item">
                 <a href="#">
                     <i>G</i>
                     <small>Github</small>
                 </a>
             </div>
-            <div class="contact-item">
+            <div class="side-list-item">
                 <a href="#">
                     <i>T</i>
                     <small>Appeler</small>
                 </a>
             </div>
-            <div class="contact-item">
+            <div class="side-list-item">
                 <a href="#">
                     <i>@</i>
                     <small>Mailer</small>
@@ -31,18 +36,57 @@
             </div>
         </div>
     </div>
-    <div class="bloc-title">
-        <h1>Hassan ALLALOU</h1>
-        <h2>Developpeur web</h2>
-        <p>Php, Symfony...</p>
-    </div>
 </div><!--/profile-->
     
 
 <div class="bloc bloc-padding realisations">
-    <h1>Realisation</h1>
-    <img src="http://placehold.it/200x200" alt="">
-</div>
+    <div class="realisation">
+        <div class="illustration-realisation" style="background-image: url('http://placehold.it/150x150');">
+            <h3>Curriculum</h3>
+        </div>
+        <div class="side-list">
+            <div class="side-list-item">
+                <a href="">
+                    <i>X</i>
+                    <small>Github</small>
+                </a>
+            </div>
+            <div class="side-list-item">
+                <div class="details-icon" data-name="project1">
+                    <i>O</i>
+                    <small>Détails</small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="realisation">
+        <div class="illustration-realisation" style="background-image: url('http://placehold.it/150x150');">
+            <h3>Nom-Du-Projet-Plus-Long</h3>
+        </div>
+        <div class="side-list">
+            <div class="side-list-item">
+                <a href="">
+                    <i>X</i>
+                    <small>Github</small>
+                </a>
+            </div>
+            <div class="side-list-item">
+                <div class="details-icon" id="target" data-name="project2">
+                    <i>O</i>
+                    <small>Détails</small>
+                </div>
+            </div>
+        </div>
+
+        <div class="bloc-realisation-modal d-none">
+            <div class="bloc bloc-padding modal-realisation">
+            <i>X</i>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste suscipit fugit enim est, impedit minima.</p>
+        </div>
+    </div><!--/realisation-->
+    
+</div><!--/realisations-->
 
 
 
@@ -50,5 +94,14 @@
 {% endblock %}
 
 {% block javascripts %}
-
+    <script>
+        var target = document.querySelectorAll('.details-icon');
+        for (let i = 0; i < target.length; i++) {
+            //var name = target[i].dataset.name;
+            target[i].addEventListener("click", function(){
+            var name = this.dataset.name;
+            alert(name)
+            });
+        }
+    </script>
 {% endblock %}
