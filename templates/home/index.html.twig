@@ -2,91 +2,142 @@
 
 
 {% block body %}
-<!--
-    https://tinyurl.com/3bhnxbyt
-    https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8ZmFjZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80
--->
 
-<div class="bloc profile">
-    <div class="bloc-profile-title">
-        <h1>Hassan ALLALOU</h1>
-        <h2>Developpeur web</h2>
-        <p>Php, Symfony...</p>
+
+{% include "commons/profile.html.twig" %}
+{% include "commons/contact.html.twig" %}
+
+<div class="row bg-white responsive-padding border rounded mb-3">
+    <div class="mb-4">
+        <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">[x]Compétences[x]</span></h3>
     </div>
-    <div class="bloc-photo">
-        <img class="photo" src="https://tinyurl.com/3bhnxbyt" alt="photo">
-        <div class="side-list">
-            <div class="side-list-item">
-                <a href="#">
-                    <i>G</i>
-                    <small>Github</small>
-                </a>
+    <div class="row mb-2">
+        <div class="col">
+            <div class="d-block">
+                <p class="m-0">HTML</p>
             </div>
-            <div class="side-list-item">
-                <a href="#">
-                    <i>T</i>
-                    <small>Appeler</small>
-                </a>
-            </div>
-            <div class="side-list-item">
-                <a href="#">
-                    <i>@</i>
-                    <small>Mailer</small>
-                </a>
+            
+            <div class="progress">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
             </div>
         </div>
+        <div class="col">
+            <div class="d-block text-end">
+                <p class="m-0">PHP</p>
+            </div>
+            <div class="progress justify-content-end">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100">85%</div>
+            </div>
+        </div>
+    </div><!--/row:ligne-de-competences-->
+    <div class="row mb-2">
+        <div class="col">
+            <div class="d-block">
+                <p class="m-0">CSS</p>
+            </div>
+            
+            <div class="progress">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 95%;" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100">95%</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-block text-end">
+                <p class="m-0">Symfony</p>
+            </div>
+            <div class="progress justify-content-end">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+            </div>
+        </div>
+    </div><!--/row:ligne-de-competences-->
+    <div class="row mb-2">
+        <div class="col">
+            <div class="d-block">
+                <p class="m-0">SASS</p>
+            </div>
+            
+            <div class="progress">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-block text-end">
+                <p class="m-0">SQL</p>
+            </div>
+            <div class="progress justify-content-end">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+            </div>
+        </div>
+    </div><!--/row:ligne-de-competences-->
+    <div class="row mb-2">
+        <div class="col">
+            <div class="d-block">
+                <p class="m-0">Javascript</p>
+            </div>
+            
+            <div class="progress">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 80%;" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">80%</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-block text-end">
+                <p class="m-0">Github</p>
+            </div>
+            <div class="progress justify-content-end">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+            </div>
+        </div>
+    </div><!--/row:ligne-de-competences-->
+    <div class="row mb-2">
+        <div class="col">
+            <div class="d-block">
+                <p class="m-0">Bootstrap</p>
+            </div>
+            
+            <div class="progress">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-block text-end">
+                <p class="m-0">Wordress</p>
+            </div>
+            <div class="progress justify-content-end">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100">70%</div>
+            </div>
+        </div>
+    </div><!--/row:ligne-de-competences-->
+    <div class="row mb-2">
+        <div class="col">
+            <div class="d-block">
+                <p class="m-0">Flutter</p>
+            </div>
+            
+            <div class="progress">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 35%;" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">35%</div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="d-block text-end">
+                <p class="m-0">Github</p>
+            </div>
+            <div class="progress justify-content-end">
+                <div class="progress-bar bg-dark" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">60%</div>
+            </div>
+        </div>
+    </div><!--/row:ligne-de-competences-->
+</div><!--/row:bloc-competences-->
+
+<div class="row bg-white responsive-padding border rounded mb-3">
+    <div class="mb-4">
+        <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Réalisations</span></h3>
     </div>
-</div><!--/profile-->
-    
-
-<div class="bloc bloc-padding realisations">
-    <div class="realisation">
-        <div class="illustration-realisation" style="background-image: url('http://placehold.it/150x150');">
-            <h3>Curriculum</h3>
-        </div>
-        <div class="side-list">
-            <div class="side-list-item">
-                <a href="">
-                    <i>X</i>
-                    <small>Github</small>
-                </a>
-            </div>
-            <div class="side-list-item">
-                <div class="details-icon" data-name="project1">
-                    <i>O</i>
-                    <small>Détails</small>
-                </div>
-            </div>
-        </div>
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+        {% for realisation in realisations %}
+            {% include "commons/realisation.html.twig" %}
+        {% endfor %}
     </div>
+</div><!--/row:bloc-realisation-->
 
-    <div class="realisation">
-        <div class="illustration-realisation" style="background-image: url('http://placehold.it/150x150');">
-            <h3>Nom-Du-Projet-Plus-Long</h3>
-        </div>
-        <div class="side-list">
-            <div class="side-list-item">
-                <a href="">
-                    <i>X</i>
-                    <small>Github</small>
-                </a>
-            </div>
-            <div class="side-list-item">
-                <div class="details-icon" id="target" data-name="project2">
-                    <i>O</i>
-                    <small>Détails</small>
-                </div>
-            </div>
-        </div>
-
-        <div class="bloc-realisation-modal d-none">
-            <div class="bloc bloc-padding modal-realisation">
-            <i>X</i>
-            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste suscipit fugit enim est, impedit minima.</p>
-        </div>
-    </div><!--/realisation-->
-    
-</div><!--/realisations-->
 
 
 

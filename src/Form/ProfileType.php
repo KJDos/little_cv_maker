@@ -4,9 +4,11 @@ namespace App\Form;
 
 use App\Entity\Profile;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ProfileType extends AbstractType
 {
@@ -15,11 +17,23 @@ class ProfileType extends AbstractType
         $builder
             ->add('nom')
             ->add('prenom')
+            ->add('photo', FileType::class, [
+                'label' => 'Photo',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1024k',
+                        'mimeTypes' => ["image/jpeg", "image/png"],
+                        'mimeTypesMessage' => 'Please upload a valid document',
+                    ])
+                ]
+            ])
             ->add('github')
             ->add('telephone')
             ->add('telephone_alt')
             ->add('mail')
-            ->add('ok', SubmitType::class)
+            //->add('ok', SubmitType::class)
         ;
     }
 

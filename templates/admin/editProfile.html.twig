@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+
 {% block title %} - Administration{% endblock %}
 
 {% block body %}
@@ -8,7 +9,7 @@
     {{form_start(editProfileForm)}}
     {{form_widget(editProfileForm)}}
     {{form_end(editProfileForm)}}
-
+<a href="{{path('admin')}}">Annuler</a>
 {% endblock %}
 
 {% block javascripts %}

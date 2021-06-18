@@ -3,32 +3,85 @@
 {% block title %} - Administration{% endblock %}
 
 {% block body %}
-    <h1>Hello world !</h1>
-    <h2>Profile / </h2>
     {% if profileForm is defined %}
-    <p>Aucun profile n'existe</p>
-    {{form_start(profileForm)}}
-        {{form_widget(profileForm)}}
-    {{form_end(profileForm)}}
+    <div class="bloc bloc-padding alert-empty">
+        <p>Vous devez créer un profil.</p>
+        <button type="button" class="btn modal-btn" data-target="new-profile-modal">Créer un profile</button>
+    </div>
+    <div id="new-profile-modal" class="bloc-modal d-none">
+        <div class="modal bloc bloc-padding">
+
+            <h2>Créer un profile</h2>
+            {{form_start(profileForm)}}
+                {{form_widget(profileForm)}}
+                <div class="modal-nav">
+                    <button type="submit" class="btn">Valider</button>
+                    <button type="button" class="btn modal-btn" data-target="new-profile-modal">Annuler et fermer</button>
+                </div>
+            {{form_end(profileForm)}}
+        </div>
+    </div>
     {% endif %}
 
-    
-    {#<h2>Realisation</h2>
-    {{form_start(realisationForm)}}
-        {{form_widget(realisationForm)}}
-    {{form_end(realisationForm)}}#}
-    {% if profiles is defined %}
-        {% for profile in profiles %}
-            {{profile.nom}}
-            <a href="{{path('admin_edit_profile', {'id': profile.id})}}">Edit Profile</a>
-        {% endfor %}
-        
+    {% if profile is defined %}
+        <div class="admin-edit">
+            <a class="admin-btn" href="{{path('admin_edit_profile', {'id': profile.id})}}">
+                <i>E</i>
+                <small>Modifier</small>
+            </a>
+            {% include "commons/profile.html.twig" %}
+        </div>
+
+
     {% endif %}
+
+    <div id="new-realisation-modal" class="bloc-modal d-none">
+        <div class="modal bloc bloc-padding">
+            <h2>Ajouter une réalisation</h2>
+            {{form_start(realisationForm)}}
+                {{form_widget(realisationForm)}}
+                <div class="modal-nav">
+                    <button type="submit" class="btn">Valider</button>
+                    <button type="button" class="btn modal-btn" data-target="new-realisation-modal">Annuler et fermer</button>
+                </div>
+            {{form_end(realisationForm)}}
+        </div>
+    </div>
+
+
+    {% if realisations is empty %}
+        <div class="bloc bloc-padding alert-empty">
+            <button type="button" class="btn modal-btn" data-target="new-realisation-modal">Ajouter une réalisation</button>
+            <p>Vous n'avez renseigné aucune réalisation.</p>
+        </div>
+        {% else %}
+
+        {#<button type="button" class="btn modal-btn" data-target="new-realisation-modal">Ajouter une réalisation</button>#}
+        <div class="admin-edit">
+            <div class="admin-btn modal-btn" data-target="new-realisation-modal">
+                <i>+</i>
+                <small>Ajouter</small>
+            </div>
+             <div class="bloc bloc-padding realisations">
+                {% for realisation in realisations %}
+                    {% include "commons/realisation.html.twig" %}
+                {% endfor %}
+            </div>
+        </div>
+
+    {% endif %}
+
 
 {% endblock %}
 
 {% block javascripts %}
     <script>
-        
+        var modalBtn = document.querySelectorAll('.modal-btn')
+        for (let i = 0; i < modalBtn.length; i++) {
+            modalBtn[i].addEventListener("click", function(){
+                var modal = document.querySelector('#'+modalBtn[i].dataset.target);
+                modal.classList.toggle('d-flex')
+            })
+        }
     </script>
 {% endblock %}

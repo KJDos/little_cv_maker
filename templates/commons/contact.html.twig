@@ -1,0 +1,74 @@
+<div class="row bg-white responsive-padding border rounded mb-3">
+    <div class="mb-4">
+        <h3 class="text-uppercase title-margin">
+            <span class="bg-dark text-white p-2">Contact</span>
+        </h3>
+    </div>
+    <div class="row">
+        <div class="col-lg-6 mb-3">
+            <div class="contact-item d-flex border border-dark rounded">
+                <a href="tel:+33{{profile.telephone}}" class="contact-icon bg-dark text-white d-flex flex-column">
+                    <div class="m-auto">
+                        <div class="text-center">
+                            <i class="icon-mobile"></i>
+                        </div>
+                        <div class="font-size-small">Appeler</div>
+                    </div>
+                </a>
+                <div class="d-flex p-2">
+                    <div class="m-auto">0{{profile.telephone}}</div>
+                </div>
+            </div>
+        </div>
+        {% if profile.telephoneAlt %}
+            <div class="col-lg-6 mb-3">
+                <div class="contact-item d-flex border border-dark rounded">
+                    <a href="tel:+33{{profile.telephoneAlt}}" class="contact-icon bg-dark text-white d-flex flex-column">
+                        <div class="m-auto">
+                            <div class="text-center">
+                                <i class="icon-phone"></i>
+                            </div>
+                            <div class="font-size-small">Appeler</div>
+                        </div>
+                    </a>
+                    <div class="d-flex p-2">
+                        <div class="m-auto ">0{{profile.telephoneAlt}}</div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+
+    </div><!--row:ligne-de-contact-->
+    <div class="row">
+        <div class="col-lg-6 mb-3">
+            <div class="contact-item d-flex border border-dark rounded">
+                <a href="mailto:{{profile.mail}}" class="contact-icon bg-dark text-white d-flex flex-column">
+                    <div class="m-auto">
+                        <div class="text-center">
+                            <i class="icon-mail"></i>
+                        </div>
+                        <div class="font-size-small">Mailer</div>
+                    </div>
+                </a>
+                <div class="d-flex p-2">
+                    <div class="m-auto">{{profile.mail}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3">
+            <div class="contact-item d-flex border border-dark rounded">
+                <a href="{{profile.github}}" target="_blank" class="contact-icon bg-dark text-white d-flex flex-column">
+                    <div class="m-auto">
+                        <div class="text-center">
+                            <i class="icon-github"></i>
+                        </div>
+                        <div class="font-size-small">Github</div>
+                    </div>
+                </a>
+                <div class="d-flex p-2">
+                    <div class="m-auto ">Github.com/KJDos</div>
+                </div>
+            </div>
+        </div>
+    </div><!--row:ligne-de-contact-->
+</div><!--row:bloc-contact-->

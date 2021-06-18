@@ -1,0 +1,18 @@
+<div class="card m-3" style="width: 18rem;">
+    <img src="{{ asset('uploads/' ~ realisation.vignette) }}" class="card-img-top" alt="Budget">
+    <div class="card-body">
+        <h5 class="card-title fw-bold">{{realisation.title}}</h5>
+        <p class="card-text">{{realisation.description}}</p>
+        <div class="col">
+            <span class="badge bg-secondary">[x]Symfony 5</span>
+            <span class="badge bg-secondary">[x]SQL, Doctrine</span>
+            <span class="badge bg-secondary">[x]Bootstrap 5</span>
+            <span class="badge bg-secondary">[x]SASS</span>
+        </div>
+            <div class="row text-center mt-3">
+                <a href="#{{realisation.github}}" target="_blank" class="btn btn-dark text-white">En savoir plus</a>
+            </div>
+    </div><!--/card-body-->
+</div><!--/card-->
+
+{#{{ asset('uploads/' ~ realisation.vignette) }}#}
