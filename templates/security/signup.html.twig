@@ -5,9 +5,10 @@
 {% block body %}
 <h1>Sign Up !</h1>
 
-    {{form_start(loginForm)}}
-        {{form_widget(loginForm)}}
-    {{form_end(loginForm)}}
+    {{form_start(signUpForm)}}
+        {{form_widget(signUpForm)}}
+        {% include "commons/formButtons.html.twig" %}
+    {{form_end(signUpForm)}}
 {% endblock %}
 
 

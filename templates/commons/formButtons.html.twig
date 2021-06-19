@@ -1,0 +1,29 @@
+{% set currentRoute = app.request.get('_route') %}
+
+{% if currentRoute == 'edit_profile' %}
+    {% set cancelPath = path('admin') %}
+{% elseif currentRoute =='login' %}
+    {% set cancelPath = path('home') %}
+{% elseif currentRoute =='sign_up' %}
+    {% set cancelPath = path('home') %}
+{% elseif currentRoute =='new_realisation' %}
+    {% set cancelPath = path('admin') %}
+{% elseif currentRoute =='edit_realisation' %}
+    {% set cancelPath = path('admin') %}
+
+{% endif %}
+
+
+<div class="row mt-3" data-url="{{app.request.get('_route')}}">
+    <p class="bg-danger text-white">'/!\' Route: {{app.request.get('_route')}}</p>
+    <div class="col text-end">
+        <button type="submit" class="btn btn-success">Valider</button>
+    </div>
+    <div class="col text-start">
+        {% if cancelPath is defined %}
+            <a href="{{cancelPath}}" type="button" class="btn btn-danger text-white">Annuler</a>
+        {% else %}
+            <a href="#" type="button" class="btn btn-danger text-white">Annuler</a>
+        {% endif %}
+    </div>
+</div>

@@ -20,30 +20,27 @@ class SignUpController extends AbstractController
     {
 
         $userCount = $manager->createQuery('SELECT COUNT(user.id) FROM App\Entity\User user')->getSingleScalarResult();
-        dump($userCount);
-        $user = new User();
-        $loginForm = $this->createForm(UserType::class, $user);
 
-        $loginForm->handleRequest($request);
-        if ($loginForm->isSubmitted() && $loginForm->isValid()) {
+        if ($userCount == 0) {
+            $user = new User();
+            $signUpForm = $this->createForm(UserType::class, $user);
+            $signUpForm->handleRequest($request);
 
-            if ($userCount == 0) {
+            if ($signUpForm->isSubmitted() && $signUpForm->isValid()) {
                 $password = $passwordEncoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($password);
                 $manager->persist($user);
                 $manager->flush();
                 return $this->redirectToRoute('login');
-            } else {
-                return $this->redirectToRoute('home');
             }
+        }else{
+            return $this->redirectToRoute('login');
         }
 
         if ($userCount == 0){
             return $this->render('security/signup.html.twig', [
-                'loginForm' => $loginForm->createView(),
+                'signUpForm' => $signUpForm->createView(),
             ]);
-        }else{
-            return $this->redirectToRoute('login');
         }
 
     }

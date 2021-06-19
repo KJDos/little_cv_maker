@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} - Administration{% endblock %}
+
+{% block body %}
+<div class="row bg-white responsive-padding border rounded mb-3">
+    <div class="mb-4">
+        <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Modifier le profil</span></h3>
+    </div>
+
+    {{form_start(editProfileForm)}}
+    {{form_widget(editProfileForm)}}
+        {% include "commons/formButtons.html.twig" %}
+    {{form_end(editProfileForm)}}
+</div>
+
+{% endblock %}

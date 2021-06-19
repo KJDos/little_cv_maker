@@ -23,11 +23,6 @@ class Realisation
     private $title;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $illustration;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $github;
@@ -55,18 +50,6 @@ class Realisation
     public function setTitle(string $title): self
     {
         $this->title = $title;
-
-        return $this;
-    }
-
-    public function getIllustration(): ?string
-    {
-        return $this->illustration;
-    }
-
-    public function setIllustration(?string $illustration): self
-    {
-        $this->illustration = $illustration;
 
         return $this;
     }

@@ -16,18 +16,6 @@ class RealisationType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('illustration', FileType::class, [
-                'label' => 'Illustration',
-                'mapped' => false,
-                'required' => false,
-                'constraints' => [
-                    new File([
-                        'maxSize' => '1024k',
-                        'mimeTypes' => ["image/jpeg", "image/png"],
-                        'mimeTypesMessage' => 'Formats valides: Jpg, Jpeg, Png',
-                    ])
-                ]
-            ])
             ->add('github')
             ->add('description')
             ->add('vignette', FileType::class, [
@@ -42,7 +30,6 @@ class RealisationType extends AbstractType
                     ])
                 ]
             ])
-            //->add('ok', SubmitType::class )
         ;
     }
 

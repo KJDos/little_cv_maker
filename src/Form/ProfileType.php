@@ -25,7 +25,7 @@ class ProfileType extends AbstractType
                     new File([
                         'maxSize' => '1024k',
                         'mimeTypes' => ["image/jpeg", "image/png"],
-                        'mimeTypesMessage' => 'Please upload a valid document',
+                        'mimeTypesMessage' => 'Formats valides: Jpg, Jpeg, Png',
                     ])
                 ]
             ])

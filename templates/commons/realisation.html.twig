@@ -1,5 +1,10 @@
 <div class="card m-3" style="width: 18rem;">
-    <img src="{{ asset('uploads/' ~ realisation.vignette) }}" class="card-img-top" alt="Budget">
+    {% if realisation.vignette %}
+        <img src="{{ asset('uploads/' ~ realisation.vignette) }}" class="card-img-top" alt="Budget">
+    {% else %}
+        <img src="http://placehold.it/225x225" alt="no-vignette">
+    {% endif %}
+    
     <div class="card-body">
         <h5 class="card-title fw-bold">{{realisation.title}}</h5>
         <p class="card-text">{{realisation.description}}</p>

@@ -4,8 +4,13 @@
 {% block body %}
 
 
-{% include "commons/profile.html.twig" %}
-{% include "commons/contact.html.twig" %}
+{% if profile %}
+    {% include "commons/profile.html.twig" %}
+    {% include "commons/contact.html.twig" %}
+{% endif %}
+
+
+
 
 <div class="row bg-white responsive-padding border rounded mb-3">
     <div class="mb-4">
@@ -127,16 +132,20 @@
     </div><!--/row:ligne-de-competences-->
 </div><!--/row:bloc-competences-->
 
-<div class="row bg-white responsive-padding border rounded mb-3">
-    <div class="mb-4">
-        <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Réalisations</span></h3>
-    </div>
-    <div class="d-flex flex-row flex-wrap justify-content-center">
-        {% for realisation in realisations %}
-            {% include "commons/realisation.html.twig" %}
-        {% endfor %}
-    </div>
-</div><!--/row:bloc-realisation-->
+
+{% if realisations %}
+    <div class="row bg-white responsive-padding border rounded mb-3">
+        <div class="mb-4">
+            <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Réalisations</span></h3>
+        </div>
+        <div class="d-flex flex-row flex-wrap justify-content-center">
+            {% for realisation in realisations %}
+                {% include "commons/realisation.html.twig" %}
+            {% endfor %}
+        </div>
+    </div><!--/row:bloc-realisation-->
+{% endif %}
+
 
 
 
