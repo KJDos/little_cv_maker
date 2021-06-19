@@ -1,0 +1,16 @@
+<div class="mb-4">
+    <h3 class="text-uppercase title-margin">
+        <span class="bg-dark text-white p-2">Compétences</span>
+    </h3>
+    <div class="row mt-4">
+        {% for skill in skills %}
+            <div class="col-lg-6">
+                <div>{{skill.name}}</div>
+                <div class="progress">
+                    <div class="progress-bar bg-dark" role="progressbar" style="width: {{skill.level}}%;" aria-valuenow="{{skill.level}}" aria-valuemin="0" aria-valuemax="100">{{skill.level}}%</div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+</div>

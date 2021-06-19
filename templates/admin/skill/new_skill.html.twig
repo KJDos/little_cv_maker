@@ -1,0 +1,36 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row mb-3">
+        <div class="col-lg bg-white responsive-padding border rounded responsive-margin">
+            <div class="mb-4">
+                <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Nouvelle compétence</span></h3>
+            </div>
+            {{form_start(newSkillForm)}}
+                {{form_widget(newSkillForm)}}
+                {% include "commons/formButtons.html.twig" %}
+            {{form_end(newSkillForm)}}
+        </div>
+        <div class="col-lg bg-white responsive-padding border rounded">
+            {% if skills is empty %}
+                <p class="text-center fs-1 text text-secondary text-uppercase">Aucune compétence n'a été ajouté</p>
+            {% else %}
+                    <div class="mb-4">
+                        <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Mes compétences</span></h3>
+                    </div>
+                {% for skill in skills %}
+                    <div class="row mb-2 border-bottom pb-2">
+                        <div class="col">{{skill.name}}</div>
+                        <div class="col text-start">{{skill.level}} / 100</div>
+                        <div class="col-2 text-end">
+                            <a href="{{path('edit_skill', {'id':skill.id})}}" class="btn btn-secondary text-white">E</a>
+                        </div>
+                        <div class="col-2">
+                            <a href="{{path('remove_skill', {'id':skill.id})}}" class="btn btn-danger text-white">X</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

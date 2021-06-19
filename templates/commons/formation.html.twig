@@ -1,0 +1,20 @@
+<div class="formation mb-3">
+    <h5 class="fw-bold">{{formation.name}}</h5>
+    <p class="fw-bold pl-2">{% if formation.date %}{{formation.date}}{% else %}En cours{% endif %}, {{formation.school}}{% if formation.place %}, {{formation.place}}{% endif %}</p>
+    <p class="pl-2">{{formation.description}}</p>
+        {% if formation.alertDescription %}
+            <div class="row p-3 rounded border border-1 bg-dark text-white" id="closable-openclassrooms-info">
+                <div class="d-flex justify-content-end mb-2">
+                    <button type="button" class="btn-close btn-close-white js-close" aria-label="Close" data-target="closable-openclassrooms-info"></button>
+                </div>
+                <div class="d-flex flex-column justify-content-end mb-2">
+                    <p class="text-center">{{formation.alertDescription}}</p>
+                    {% if formation.alertAction %}
+                        <a href="{{formation.alertAction}}" target="_blank" class="btn btn-light text-dark">En savoir plus</a>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
+</div>
+
+

@@ -52,6 +52,16 @@ class Profile
      */
     private $photo;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $job;
+
+    /**
+     * @ORM\Column(type="text")
+     */
+    private $description;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -137,6 +147,30 @@ class Profile
     public function setPhoto(string $photo): self
     {
         $this->photo = $photo;
+
+        return $this;
+    }
+
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    public function setJob(string $job): self
+    {
+        $this->job = $job;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }

@@ -19,7 +19,7 @@ class RealisationController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/admin/realisation/new", name="new_realisation")
      */
-    public function newRealisation(Request $request, EntityManagerInterface $manager, RealisationRepository $realisationRepo)
+    public function newRealisation(Request $request, EntityManagerInterface $manager)
     {
         $realisation = new Realisation();
         $realisationForm = $this->createForm(RealisationType::class, $realisation);
@@ -48,7 +48,7 @@ class RealisationController extends AbstractController
             return $this->redirectToRoute('admin');
         }
 
-        return $this->render('admin/crud/new_realisation.html.twig', [
+        return $this->render('admin/realisation/new_realisation.html.twig', [
             'realisationForm' => $realisationForm->createView(),
         ]);
     }
@@ -83,7 +83,7 @@ class RealisationController extends AbstractController
             return $this->redirectToRoute('admin');
         }
 
-        return $this->render('admin/crud/edit_realisation.html.twig', [
+        return $this->render('admin/realisation/edit_realisation.html.twig', [
             'editRealisationForm' => $editRealisationForm->createView(),
             'realisation' => $realisation,
         ]);

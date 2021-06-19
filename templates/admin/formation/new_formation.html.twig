@@ -1,0 +1,35 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row mb-3">
+        <div class="col-lg bg-white responsive-padding border rounded responsive-margin">
+            <div class="mb-4">
+                <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Nouvelle formation</span></h3>
+            </div>
+            {{form_start(newFormationForm)}}
+                {{form_widget(newFormationForm)}}
+                {% include "commons/formButtons.html.twig" %}
+            {{form_end(newFormationForm)}}
+        </div>
+        <div class="col-lg bg-white responsive-padding border rounded">
+            {% if formations is empty %}
+                <p class="text-center fs-1 text text-secondary text-uppercase">Aucune formation n'a été ajoutée.</p>
+            {% else %}
+                    <div class="mb-4">
+                        <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Mes formations</span></h3>
+                    </div>
+                {% for formation in formations %}
+                    <div class="row mb-2 border-bottom pb-2">
+                        <div class="col">{{formation.name}}</div>
+                        <div class="col-2 text-end">
+                            <a href="{{path('edit_formation', {'id':formation.id})}}" class="btn btn-secondary text-white">E</a>
+                        </div>
+                        <div class="col-2">
+                            <a href="{{path('remove_formation', {'id':formation.id})}}" class="btn btn-danger text-white">X</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

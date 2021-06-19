@@ -22,7 +22,7 @@ Encore
      */
     
     .addEntry('app', './assets/app.js')
-    .addEntry('formButtons', './assets/js/formButtons.js')
+    .addEntry('closable', './assets/js/closable.js')
 
     // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
     .enableStimulusBridge('./assets/controllers.json')

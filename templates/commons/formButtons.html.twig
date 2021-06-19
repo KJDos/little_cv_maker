@@ -10,7 +10,14 @@
     {% set cancelPath = path('admin') %}
 {% elseif currentRoute =='edit_realisation' %}
     {% set cancelPath = path('admin') %}
-
+{% elseif currentRoute =='new_skill' %}
+    {% set cancelPath = path('admin') %}
+{% elseif currentRoute =='edit_skill' %}
+    {% set cancelPath = path('new_skill') %}
+{% elseif currentRoute =='new_formation' %}
+    {% set cancelPath = path('admin') %}
+{% elseif currentRoute =='edit_formation' %}
+    {% set cancelPath = path('new_formation') %}
 {% endif %}
 
 

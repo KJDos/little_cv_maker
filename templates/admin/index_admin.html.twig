@@ -1,15 +1,23 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
+
     {% if profile %}
     <nav>
-        <div class="row bg-white responsive-padding">
+        <div class="row bg-white responsive-padding mb-3">
             <div class="col">
-                <a href="{{path('edit_profile', {'id': profile.id})}}" class="btn btn-primary">Modifier le profil</a>
+                <a href="{{path('edit_profile', {'id': profile.id})}}" class="btn btn-primary text-white">Profil</a>
             </div>
             <div class="col">
-                <a href="{{path('new_realisation')}}" class="btn btn-primary">Nouvelle réalisation</a>
+                <a href="{{path('new_realisation')}}" class="btn btn-primary text-white">Realisations</a>
             </div>
+            <div class="col">
+                <a href="{{path('new_skill')}}" class="btn btn-primary text-white">Compétences</a>
+            </div>
+            <div class="col">
+                <a href="{{path('new_formation')}}" class="btn btn-primary text-white">Formations</a>
+            </div>
+
         </div>
     </nav>
 
@@ -22,6 +30,14 @@
                 <a href="{{path('new_profile')}}" class="btn btn-danger">Créer un profil</a>
             </div>
         </div>
+    {% endif %}
+
+    {% if profile %}
+        {% if skills %}
+            <div class="row bg-white responsive-padding border rounded mb-3">
+                {% include "commons/skill.html.twig" %}
+            </div>
+        {% endif %}
     {% endif %}
 
     {% if profile %}
@@ -48,9 +64,30 @@
             </div><!--/row:bloc-realisation-->
         {% else %}
             <div class="row bg-white responsive-padding border rounded mb-3 justify-content-center">
-                <p class="text-center fs-1 text text-secondary text-uppercase">Aucune réalisation</p>
+                <p class="text-center fs-1 text text-secondary text-uppercase">Aucune réalisation.</p>
                 <div class="col-6 text-center">
                     <a href="{{path('new_realisation')}}" class="btn btn-danger">Ajouter une réalisation</a>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if profile %}
+        {% if formations %}
+            <div class="row bg-white responsive-padding border rounded mb-3">
+                <div class="mb-4">
+                    <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Formations</span></h3>
+                </div>
+                {% for formation in formations %}
+                    {% include "commons/formation.html.twig" %}
+                {% endfor %}
+                
+            </div>
+        {% else %}
+            <div class="row bg-white responsive-padding border rounded mb-3 justify-content-center">
+                <p class="text-center fs-1 text text-secondary text-uppercase">Aucune formation.</p>
+                <div class="col-6 text-center">
+                    <a href="{{path('new_formation')}}" class="btn btn-danger">Ajouter une formation</a>
                 </div>
             </div>
         {% endif %}

@@ -61,7 +61,7 @@ class ProfileController extends AbstractController
                 return $this->redirectToRoute('admin');
             }
 
-            return $this->render('admin/crud/new_profile.html.twig', [
+            return $this->render('admin/profile/new_profile.html.twig', [
                 'profileForm' => $profileForm->createView()
             ]);
         } else {
@@ -113,7 +113,7 @@ class ProfileController extends AbstractController
             return $this->redirectToRoute('admin');
         }
 
-        return $this->render('admin/crud/edit_profile.html.twig', [
+        return $this->render('admin/profile/edit_profile.html.twig', [
             'editProfileForm' => $editProfileForm->createView(),
             'profile' => $profile,
         ]);
