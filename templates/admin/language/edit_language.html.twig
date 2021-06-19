@@ -1,0 +1,13 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="row bg-white responsive-padding border rounded mb-3">
+        <div class="mb-4">
+            <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Modifier {{language.name}}</span></h3>
+        </div>
+        {{form_start(editLanguageForm)}}
+            {{form_widget(editLanguageForm)}}
+            {% include "commons/formButtons.html.twig" %}
+        {{form_end(editLanguageForm)}}
+    </div>
+{% endblock %}

@@ -17,7 +17,9 @@
             <div class="col">
                 <a href="{{path('new_formation')}}" class="btn btn-primary text-white">Formations</a>
             </div>
-
+            <div class="col">
+                <a href="{{path('new_language')}}" class="btn btn-primary text-white">Langues</a>
+            </div>
         </div>
     </nav>
 
@@ -89,6 +91,14 @@
                 <div class="col-6 text-center">
                     <a href="{{path('new_formation')}}" class="btn btn-danger">Ajouter une formation</a>
                 </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if profile %}
+        {% if languages %}
+            <div class="row bg-white responsive-padding border rounded mb-3">
+                {% include "commons/language.html.twig" %}
             </div>
         {% endif %}
     {% endif %}

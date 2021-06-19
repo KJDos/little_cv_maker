@@ -7,6 +7,7 @@ use App\Form\ProfileType;
 use App\Entity\Realisation;
 use App\Form\RealisationType;
 use App\Repository\FormationRepository;
+use App\Repository\LanguageRepository;
 use App\Repository\ProfileRepository;
 use App\Repository\RealisationRepository;
 use App\Repository\SkillRepository;
@@ -24,7 +25,7 @@ class AdminController extends AbstractController
      * @IsGranted("ROLE_USER")
      * @Route("/admin", name="admin")
      */
-    public function index(ProfileRepository $profileRepo, RealisationRepository $realisationRepo, SkillRepository $skillRepo, FormationRepository $formationRepo): Response
+    public function index(ProfileRepository $profileRepo, RealisationRepository $realisationRepo, SkillRepository $skillRepo, FormationRepository $formationRepo, LanguageRepository $languageRepo): Response
     {
 
         $profiles = $profileRepo->findAll();
@@ -37,6 +38,7 @@ class AdminController extends AbstractController
         $realisations = $realisationRepo->findAll();
         $skills = $skillRepo->findAll();
         $formations = $formationRepo->findAll();
+        $languages  = $languageRepo->findAll();
 
 
         return  $this->render('admin/index_admin.html.twig', [
@@ -44,6 +46,7 @@ class AdminController extends AbstractController
             'realisations' => $realisations,
             'skills' => $skills,
             'formations' => $formations,
+            'languages' => $languages,
         ]);
 
     }

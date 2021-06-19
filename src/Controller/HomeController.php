@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\FormationRepository;
+use App\Repository\LanguageRepository;
 use App\Repository\ProfileRepository;
 use App\Repository\RealisationRepository;
 use App\Repository\SkillRepository;
@@ -14,11 +16,14 @@ class HomeController extends AbstractController
     /**
      * @Route("/", name="home")
      */
-    public function index(ProfileRepository $profileRepo, RealisationRepository $realisationRepo, SkillRepository $skillRepo): Response
+    public function index(ProfileRepository $profileRepo, RealisationRepository $realisationRepo, SkillRepository $skillRepo, FormationRepository $formationRepo, LanguageRepository $languageRepo): Response
     {
         $profiles = $profileRepo->findAll();
         $realisations = $realisationRepo->findAll();
         $skills = $skillRepo->findAll();
+        $formations = $formationRepo->findAll();
+        $languages = $languageRepo->findAll();
+
         if (empty($profiles)) {
             return $this->redirectToRoute('admin');
         }else{
@@ -30,6 +35,8 @@ class HomeController extends AbstractController
             'profile' => $profile,
             'realisations' => $realisations,
             'skills' => $skills,
+            'formations' => $formations,
+            'languages' => $languages,
         ]);
     }
 }

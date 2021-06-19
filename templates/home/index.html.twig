@@ -32,6 +32,24 @@
 {% endif %}
 
 
+{% if formations %}
+    <div class="row bg-white responsive-padding border rounded mb-3">
+        <div class="mb-4">
+            <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Formations</span></h3>
+        </div>
+        {% for formation in formations %}
+            {% include "commons/formation.html.twig" %}
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+{% if languages %}
+    <div class="row bg-white responsive-padding border rounded mb-3">
+        {% include "commons/language.html.twig" %}
+    </div>
+{% endif %}
+
 
 
 
