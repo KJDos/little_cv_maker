@@ -17,6 +17,18 @@ class ProfileType extends AbstractType
         $builder
             ->add('job')
             ->add('description')
+            ->add('pdf', FileType::class, [
+                'label' => 'Cv PDF',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '3024k',
+                        'mimeTypes' => ["application/pdf", "application/x-pdf"],
+                        'mimeTypesMessage' => 'Format valide: PDF',
+                    ])
+                ]
+            ])
             ->add('nom')
             ->add('prenom')
             ->add('photo', FileType::class, [
@@ -25,7 +37,7 @@ class ProfileType extends AbstractType
                 'required' => false,
                 'constraints' => [
                     new File([
-                        'maxSize' => '1024k',
+                        'maxSize' => '3024k',
                         'mimeTypes' => ["image/jpeg", "image/png"],
                         'mimeTypesMessage' => 'Formats valides: Jpg, Jpeg, Png',
                     ])

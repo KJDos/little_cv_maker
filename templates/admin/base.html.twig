@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Admin{% endblock %}</title>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+    </head>
+    <body>
+            
+        
+        <div class="container mt-3">
+            <div class="d-flex flex-row">
+                <div class="nav col-1">
+                    <nav class="position-fixed">
+                        <div>
+                            <a href="{{path('admin')}}" class="btn btn-primary text-white w-100 mb-2">
+                                <div>X</div>
+                                <small class="font-size-small">Home</small>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{path('edit_profile', {'id':app.user.id})}}" class="btn btn-primary text-white w-100 mb-2">
+                                <div>X</div>
+                                <small class="font-size-small">Profile</small>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{path('new_realisation')}}" class="btn btn-primary text-white w-100 mb-2">
+                                <div>X</div>
+                                <small class="font-size-small">Realisation</small>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{path('new_skill')}}" class="btn btn-primary text-white w-100 mb-2">
+                                <div>X</div>
+                                <small class="font-size-small">Compétence</small>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{path('new_formation')}}" class="btn btn-primary text-white w-100 mb-2">
+                                <div>X</div>
+                                <small class="font-size-small">Formation</small>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="{{path('new_language')}}" class="btn btn-primary text-white w-100 mb-2">
+                                <div>X</div>
+                                <small class="font-size-small">Languages</small>
+                            </a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="col">
+                    {% block body %}{% endblock %}
+                </div>
+            </div><!--row-->
+            
+        </div>
+        
+        
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('closable') }}
+        {% endblock %}
+    </body>
+</html>

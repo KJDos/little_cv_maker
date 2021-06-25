@@ -1,0 +1,86 @@
+{% extends "admin/base.html.twig" %}
+
+{% block body %}
+
+    {% if profile %}
+        {% include "commons/profile.html.twig" %}
+        {% include "commons/contact.html.twig" %}
+    {% else %}
+        <div class="row bg-white responsive-padding border rounded mb-3 justify-content-center">
+            <p class="text-center fs-1 text text-secondary text-uppercase">Aucun profil</p>
+            <div class="col-6 text-center">
+                <a href="{{path('new_profile')}}" class="btn btn-danger">Créer un profil</a>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if profile %}
+        {% if skills %}
+            <div class="row bg-white responsive-padding border rounded mb-3">
+                {% include "commons/skill.html.twig" %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if profile %}
+        {% if realisations %}
+            <div class="row bg-white responsive-padding border rounded mb-3">
+                <div class="mb-4">
+                    <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Réalisations</span></h3>
+                </div>
+                <div class="d-flex flex-row flex-wrap justify-content-center">
+                    {% for realisation in realisations %}
+                        <div class="d-flex flex-column">
+                            <div class="row">
+                                <div class="col text-end w-50">
+                                    <a href="{{path('edit_realisation', {'id':realisation.id})}}" class="btn btn-dark text-white">Modifier</a>
+                                </div>
+                                <div class="col text-start w-50">
+                                    <a href="{{path('remove_realisation', {'id':realisation.id})}}" class=" btn btn-danger">Supprimer</a>
+                                </div>
+                            </div>
+                            {% include "commons/realisation.html.twig" %}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div><!--/row:bloc-realisation-->
+        {% else %}
+            <div class="row bg-white responsive-padding border rounded mb-3 justify-content-center">
+                <p class="text-center fs-1 text text-secondary text-uppercase">Aucune réalisation.</p>
+                <div class="col-6 text-center">
+                    <a href="{{path('new_realisation')}}" class="btn btn-danger">Ajouter une réalisation</a>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if profile %}
+        {% if formations %}
+            <div class="row bg-white responsive-padding border rounded mb-3">
+                <div class="mb-4">
+                    <h3 class="text-uppercase title-margin"><span class="bg-dark text-white p-2">Formations</span></h3>
+                </div>
+                {% for formation in formations %}
+                    {% include "commons/formation.html.twig" %}
+                {% endfor %}
+                
+            </div>
+        {% else %}
+            <div class="row bg-white responsive-padding border rounded mb-3 justify-content-center">
+                <p class="text-center fs-1 text text-secondary text-uppercase">Aucune formation.</p>
+                <div class="col-6 text-center">
+                    <a href="{{path('new_formation')}}" class="btn btn-danger">Ajouter une formation</a>
+                </div>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    {% if profile %}
+        {% if languages %}
+            <div class="row bg-white responsive-padding border rounded mb-3">
+                {% include "commons/language.html.twig" %}
+            </div>
+        {% endif %}
+    {% endif %}
+
+{% endblock %}

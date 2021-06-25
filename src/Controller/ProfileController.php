@@ -47,6 +47,22 @@ class ProfileController extends AbstractController
                     $profile->setPhoto($filename);
                 }
 
+                if ($profileForm->get('pdf')->getData()) {
+                    $pdfFile = $profileForm->get('pdf')->getData();
+                    $filename = $profileForm->get('prenom')->getData() . '.' . $pdfFile->guessExtension();
+                    try {
+                        $pdfFile->move(
+                            $this->getParameter('pdf_directory'),
+                            $filename
+                        );
+                    } catch (FileException $e) {
+                        dump($e);
+                        // ... handle exception if something happens during file upload = redirect + appflash error
+                    }
+                    $profile->setPdf($filename);
+                }
+
+
                 //if ($profileForm->get('telephone')->getData()) {
                 //    $telephone = $profileForm->get('telephone')->getData();
                 //    $profile->setTelephone(substr($telephone, 1));
@@ -97,6 +113,20 @@ class ProfileController extends AbstractController
                 $profile->setPhoto($filename);
             }
 
+            if ($editProfileForm->get('pdf')->getData()) {
+                $pdfFile = $editProfileForm->get('pdf')->getData();
+                $filename = $editProfileForm->get('prenom')->getData() . '-' . $editProfileForm->get('nom')->getData() . '.' . $pdfFile->guessExtension();
+                try {
+                    $pdfFile->move(
+                        $this->getParameter('pdf_directory'),
+                        $filename
+                    );
+                } catch (FileException $e) {
+                    dump($e);
+                    // ... handle exception if something happens during file upload = redirect + appflash error
+                }
+                $profile->setPdf($filename);
+            }
 
             //if ($editProfileForm->get('telephone')->getData()) {
             //    $telephone = $editProfileForm->get('telephone')->getData();

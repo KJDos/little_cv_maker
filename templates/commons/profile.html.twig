@@ -11,10 +11,12 @@
     <div class="col-lg d-flex flex-column justify-content-center bg-white p-5 ml-3 border rounded">
         <h1 class="text-center text-uppercase fw-light mb-3">{{profile.job}}</h1>
         <p>{{profile.description}}</p>
-        <div class="row text-center mt-5">
-            <div class="col">
-                <a href="#" download="nom_doc_et_extension" class="btn btn-dark text-white">Télécharger le CV</a>
+        {% if profile.pdf %}
+            <div class="row text-center mt-5">
+                <div class="col">
+                    <a href="{{ asset('uploads/pdf/' ~ profile.pdf) }}" download="{{profile.pdf}}" class="btn btn-dark text-white">Télécharger le CV</a>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 </div><!--/row:bloc-profil-->
